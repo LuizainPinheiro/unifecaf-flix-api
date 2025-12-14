@@ -1,0 +1,24 @@
+// Define o esquema do banco de dados para o Prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelagem da entidade Filme
+model Filme {
+  id               Int     @id @default(autoincrement()) // Chave primária
+  titulo           String  @db.VarChar(255)              // Título do filme
+  sinopse          String? @db.Text                      // Sinopse 
+  diretor          String? @db.VarChar(100)              // Nome do diretor 
+  ano_lancamento   Int?    @db.Year                      // Ano de lançamento
+  genero           String? @db.VarChar(50)               // Gênero do filme
+
+  @@map("Filme")
+}
+
+

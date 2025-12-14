@@ -1,0 +1,26 @@
+-- Cria o banco de dados se ele não existir
+CREATE DATABASE IF NOT EXISTS unifecaf_flix_db;
+
+-- Seleciona o banco de dados para uso
+USE unifecaf_flix_db;
+
+-- Cria a tabela Filme
+CREATE TABLE IF NOT EXISTS Filme (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    sinopse TEXT,
+    diretor VARCHAR(100),
+    ano_lancamento YEAR,
+    genero VARCHAR(50)
+);
+
+-- Insere dados iniciais de exemplo
+INSERT INTO Filme (titulo, sinopse, diretor, ano_lancamento, genero) VALUES
+('O Retorno dos Códigos', 'Uma equipe de desenvolvedores precisa salvar o mundo de um bug apocalíptico.', 'Ada Lovelace', 2024, 'Ficção Científica'),
+('A Arquitetura Secreta', 'Documentário que explora os princípios ocultos do design MVC e REST.', 'Roy Fielding', 2023, 'Documentário'),
+('O Ladrão de Bytes', 'Um mestre hacker precisa roubar um arquivo JSON crucial para a economia global.', 'Linus Torvalds', 2022, 'Suspense'),
+('Aventura no MySQL', 'Um grupo de queries embarca em uma jornada para otimizar um banco de dados gigante.', 'Grace Hopper', 2021, 'Aventura'),
+('O Segredo do Express', 'A história de como um framework minimalista se tornou o coração de milhões de APIs.', 'Guilherme', 2020, 'Comédia');
+
+-- Verifica se a tabela foi criada e populada
+SELECT * FROM Filme;
